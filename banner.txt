@@ -1,0 +1,52 @@
+HTML код для размещения баннера на сайте:
+
+html
+<div id="banner">
+  <img src="img1.jpg" alt="Banner Image">
+</div>
+
+
+CSS стили для задания размера баннера и изображения:
+------------------------
+
+#banner {
+  width: 500px;
+  height: 1500px;
+  overflow: hidden;
+}
+
+#banner img {
+  width: 500px;
+  height: 1500px;
+}
+
+
+JavaScript код для смены изображения каждые 5 секунд:
+-----------------
+// массив с именами изображений
+var images = ["img1.jpg", "img2.jpg", "img3.jpg", "img4.jpg", "img5.jpg"];
+
+// индекс текущего изображения
+var currentIndex = 0;
+
+// функция для смены изображения
+function changeImage() {
+  // увеличиваем индекс текущего изображения
+  currentIndex++;
+
+  // если индекс стал больше количества изображений, то обнуляем его
+  if (currentIndex >= images.length) {
+    currentIndex = 0;
+  }
+
+  // получаем элемент баннера и меняем его src на новое изображение
+  var banner = document.getElementById("banner");
+  banner.getElementsByTagName("img")[0].src = images[currentIndex];
+}
+
+// устанавливаем интервал для смены изображения
+setInterval(changeImage, 5000);
+
+
+----------------------
+*Примечание: В коде предполагается, что изображения находятся в той же папке, что и HTML файл. Если изображения находятся в другой папке, нужно указать правильный путь к изображениям в массиве images.
